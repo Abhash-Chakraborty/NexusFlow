@@ -189,7 +189,7 @@ export function DesignerShell() {
         <div className="pointer-events-none absolute right-[-10rem] top-[-2rem] h-[20rem] w-[20rem] rounded-full bg-[rgba(248,100,214,0.16)] blur-3xl" />
         <div className="pointer-events-none absolute left-[38%] top-8 h-[16rem] w-[16rem] rounded-full bg-[rgba(132,94,247,0.12)] blur-3xl" />
 
-        <div className="relative flex min-h-screen w-full flex-col gap-[6px] p-[10px] lg:h-full lg:min-h-0 lg:overflow-hidden lg:p-[10px]">
+        <div className="relative grid min-h-screen w-full grid-rows-[auto_minmax(0,1fr)_auto] gap-[6px] p-[10px] lg:h-full lg:min-h-0 lg:overflow-hidden lg:p-[10px]">
           <CanvasToolbar
             onClearCanvas={handleClearCanvas}
             onExport={exportWorkflow}
@@ -201,7 +201,7 @@ export function DesignerShell() {
             onSave={handleSave}
           />
 
-          <div className="designer-workspace lg:min-h-0 lg:flex-1">
+          <div className="designer-workspace min-h-0">
             <div className="viewport-panel min-h-[320px] lg:min-h-0">
               <NodePaletteSidebar />
             </div>

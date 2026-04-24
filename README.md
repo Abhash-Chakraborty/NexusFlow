@@ -23,16 +23,31 @@ The project is intentionally organized so the workflow engine, persistence layer
 
 ## Screenshots
 
-Add your product images here when ready:
+### Guided onboarding tour
 
-- `docs/screenshots/designer-overview.png`
-- `docs/screenshots/canvas-editing.png`
-- `docs/screenshots/simulation-panel.png`
-- `docs/screenshots/saved-workflows.png`
+The first-run tour introduces the designer one surface at a time and highlights the exact part of the interface the user should focus on.
 
-Existing example:
+![Onboarding step: workflow naming](./docs/screenshots/onboarding-name-workflow.png)
+![Onboarding step: start fresh or clear](./docs/screenshots/onboarding-new-workflow.png)
+![Onboarding step: node palette](./docs/screenshots/onboarding-node-palette.png)
+![Onboarding step: starter workflows](./docs/screenshots/onboarding-starter-workflows.png)
+![Onboarding step: canvas overview](./docs/screenshots/onboarding-canvas-overview.png)
+![Onboarding step: inspector panel](./docs/screenshots/onboarding-inspector-panel.png)
+![Onboarding step: status bar](./docs/screenshots/onboarding-status-bar.png)
 
-![NexusFlow designer overview](./docs/screenshots/designer-overview.png)
+### Dark-mode designer examples
+
+These screenshots show the polished dark theme, robust starter workflows, and the expanded minimap for larger graphs.
+
+![Security incident starter workflow in dark mode](./docs/screenshots/security-incident-template-dark.png)
+![Vendor procurement starter workflow in dark mode](./docs/screenshots/vendor-procurement-template-dark.png)
+![Expanded minimap with vendor procurement workflow](./docs/screenshots/vendor-procurement-minimap-dark.png)
+
+### Simulation panel
+
+The simulator validates the graph, previews runtime execution, and gives teams a readable execution log before they save or share a flow.
+
+![Workflow simulator panel in dark mode](./docs/screenshots/simulation-panel-dark.png)
 
 ## Core Capabilities
 

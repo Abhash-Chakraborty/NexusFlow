@@ -356,7 +356,7 @@ select {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: calc(0.625rem - 2px);
+  gap: calc(0.625rem - 6px);
   min-width: 0;
 }
 

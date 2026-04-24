@@ -36,17 +36,27 @@ export function CustomEdge({
       />
       <EdgeLabelRenderer>
         <div
-          className="group nodrag nopan pointer-events-all absolute"
+          className="group nodrag nopan nowheel pointer-events-all absolute"
           style={{
             transform: `translate(-50%, -50%) translate(${labelX}px, ${labelY}px)`,
           }}
         >
           <button
+            aria-label="Delete link"
             type="button"
-            className={`flex h-8 w-8 items-center justify-center rounded-full border border-border-default bg-surface-0 text-text-secondary shadow-[var(--shadow-menu)] transition hover:border-[var(--color-error)] hover:text-[var(--color-error)] ${
+            className={`nodrag nopan nowheel pointer-events-auto flex h-8 w-8 items-center justify-center rounded-full border border-border-default bg-surface-0 text-text-secondary shadow-[var(--shadow-menu)] transition hover:border-[var(--color-error)] hover:text-[var(--color-error)] ${
               selected ? "opacity-100" : "opacity-70 hover:opacity-100"
             }`}
+            onMouseDown={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+            }}
+            onPointerDown={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+            }}
             onClick={(event) => {
+              event.preventDefault();
               event.stopPropagation();
               removeEdge(id);
             }}

@@ -67,9 +67,9 @@ export function CanvasToolbar({
         </div>
       </div>
 
-      <div className="toolbar-fields min-w-0" data-tour-id="workflow-name">
+      <div className="toolbar-fields min-w-0 w-75" data-tour-id="workflow-name">
         <Input
-          className="h-9 max-w-[320px] font-medium xl:max-w-[300px] 2xl:max-w-[340px]"
+          className="h-9 max-w-[320px] font-medium xl:max-w-[300px] 2xl:max-w-[320px]"
           placeholder="Flow name"
           value={workflowName}
           onChange={(event) => setWorkflowMeta(event.target.value, workflowDescription)}
@@ -106,7 +106,7 @@ export function CanvasToolbar({
           </Button>
         </div>
 
-        <div className="flex items-center gap-1 rounded-full border border-border-default bg-surface-0 p-0.5 shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
+        <div className="flex items-center rounded-full border border-border-default bg-surface-0 p-0.5 shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
           <Button size="sm" type="button" variant="ghost" onClick={onLayoutVertical}>
             <LayoutPanelTop className="h-4 w-4" />
             Vertical

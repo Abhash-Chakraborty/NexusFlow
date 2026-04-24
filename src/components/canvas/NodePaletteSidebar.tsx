@@ -7,19 +7,32 @@ import { Badge } from "@ui/badge";
 import { Button } from "@ui/button";
 import {
   Bot,
+  BriefcaseBusiness,
+  ClipboardList,
   DatabaseZap,
   FileCheck2,
   FileStack,
   FolderInput,
+  HeartPulse,
   LayoutGrid,
   Library,
   PlayCircle,
   Shapes,
+  ShieldAlert,
 } from "lucide-react";
 
 import { WorkflowListSidebar } from "./WorkflowListSidebar";
 
-const templateIconMap = [PlayCircle, FolderInput, FileCheck2, DatabaseZap];
+const templateIconMap = [
+  PlayCircle,
+  FolderInput,
+  FileCheck2,
+  DatabaseZap,
+  BriefcaseBusiness,
+  ShieldAlert,
+  HeartPulse,
+  ClipboardList,
+];
 
 export function NodePaletteSidebar() {
   const addNode = useWorkflowStore((state) => state.addNode);
@@ -30,7 +43,7 @@ export function NodePaletteSidebar() {
 
   return (
     <aside
-      className="surface-card flex h-full w-full flex-col overflow-hidden rounded-[30px] p-2.5"
+      className="surface-card flex h-full min-h-0 w-full flex-col overflow-hidden rounded-[30px] p-2.5"
       data-tour-id="left-rail"
     >
       <div className="mt-2 grid grid-cols-2 gap-1.5 rounded-full bg-surface-2 p-1">
@@ -56,9 +69,9 @@ export function NodePaletteSidebar() {
         </Button>
       </div>
 
-      <div className="mt-2 flex-1 overflow-y-auto pr-0.5">
+      <div className="mt-2 min-h-0 flex-1 overflow-x-hidden overflow-y-auto pr-0.5">
         {sidebarTab === "nodes" ? (
-          <div className="space-y-3">
+          <div className="space-y-3 pb-2">
             <section className="space-y-1.5" data-tour-id="node-palette">
               <div className="flex items-center justify-between">
                 <div>
