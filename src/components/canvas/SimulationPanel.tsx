@@ -41,7 +41,7 @@ export function SimulationPanel() {
           <motion.button
             aria-label="Close simulation overlay"
             animate={{ opacity: 1 }}
-            className="fixed inset-0 z-40 bg-[rgba(16,24,40,0.22)] backdrop-blur-[10px]"
+            className="fixed inset-0 z-40 bg-[color-mix(in_srgb,var(--color-app)_54%,rgba(0,0,0,0.56))] backdrop-blur-[10px]"
             exit={{ opacity: 0 }}
             initial={{ opacity: 0 }}
             type="button"
@@ -56,13 +56,13 @@ export function SimulationPanel() {
           >
             <motion.div
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              className="relative flex h-[min(82vh,760px)] w-full max-w-[1440px] flex-col overflow-hidden rounded-[32px] border border-white/70 bg-[rgba(255,255,255,0.96)] shadow-[0_32px_100px_rgba(0,0,0,0.18)] backdrop-blur-2xl"
+              className="relative flex h-[min(82vh,760px)] w-full max-w-[1440px] flex-col overflow-hidden rounded-[32px] border border-border-subtle bg-[color-mix(in_srgb,var(--color-surface-0)_96%,transparent)] shadow-[0_32px_100px_rgba(0,0,0,0.18)] backdrop-blur-2xl"
               exit={{ opacity: 0, scale: 0.98, y: 24 }}
               initial={{ opacity: 0, scale: 0.98, y: 24 }}
               transition={{ type: "spring", stiffness: 260, damping: 28 }}
               onClick={(event) => event.stopPropagation()}
             >
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.9),transparent_72%)]" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-[radial-gradient(circle_at_top,color-mix(in_srgb,var(--color-surface-0)_90%,transparent),transparent_72%)]" />
 
               <div className="relative flex h-full flex-col px-4 pb-4 pt-4 sm:px-6 sm:pb-6 sm:pt-5">
                 <div className="flex items-center justify-between gap-4 border-b border-border-default pb-4">
@@ -94,7 +94,7 @@ export function SimulationPanel() {
 
                 <div className="mt-4 grid min-h-0 flex-1 gap-4 xl:grid-cols-[320px_minmax(0,1fr)]">
                   <div className="space-y-4">
-                    <div className="rounded-[20px] border border-border-default bg-white/90 p-4 shadow-sm">
+                    <div className="rounded-[20px] border border-border-default bg-surface-0/90 p-4 shadow-sm">
                       <div className="flex items-center justify-between">
                         <p className="text-sm font-semibold text-text-primary">
                           Validation Summary
@@ -134,7 +134,7 @@ export function SimulationPanel() {
                       onClick={runSimulation}
                     >
                       {simulation.isPending ? (
-                        <Spinner className="text-white" />
+                        <Spinner className="text-text-inverse" />
                       ) : (
                         <Play className="h-4 w-4" />
                       )}
@@ -142,7 +142,7 @@ export function SimulationPanel() {
                     </Button>
                   </div>
 
-                  <div className="min-h-0 overflow-y-auto rounded-[20px] border border-border-default bg-white/92 p-4 shadow-sm">
+                  <div className="min-h-0 overflow-y-auto rounded-[20px] border border-border-default bg-surface-0/92 p-4 shadow-sm">
                     {simulation.result ? (
                       <div className="space-y-4">
                         <ExecutionTimeline steps={simulation.result.steps} />

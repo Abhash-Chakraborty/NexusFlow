@@ -72,7 +72,7 @@ export function ApprovalNodeForm({ node }: ApprovalNodeFormProps) {
           />
         </FormField>
         <FormField label="Require All Approvers">
-          <div className="flex items-center justify-between rounded-[14px] border border-border-default bg-white px-3 py-3">
+          <div className="flex items-center justify-between rounded-[14px] border border-border-default bg-surface-0 px-3 py-3">
             <div>
               <p className="text-sm font-medium text-text-primary">Strict approval path</p>
               <p className="text-xs text-text-secondary">

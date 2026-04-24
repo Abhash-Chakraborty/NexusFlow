@@ -184,7 +184,7 @@ export function DesignerShell() {
   return (
     <>
       <div className="relative min-h-screen bg-app text-text-primary lg:h-[100dvh] lg:overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[20rem] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.7),transparent_68%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[20rem] bg-[radial-gradient(circle_at_top,color-mix(in_srgb,var(--color-surface-0)_72%,transparent),transparent_68%)]" />
         <div className="pointer-events-none absolute left-[-8rem] top-10 h-[18rem] w-[18rem] rounded-full bg-[rgba(163,255,91,0.16)] blur-3xl" />
         <div className="pointer-events-none absolute right-[-10rem] top-[-2rem] h-[20rem] w-[20rem] rounded-full bg-[rgba(248,100,214,0.16)] blur-3xl" />
         <div className="pointer-events-none absolute left-[38%] top-8 h-[16rem] w-[16rem] rounded-full bg-[rgba(132,94,247,0.12)] blur-3xl" />

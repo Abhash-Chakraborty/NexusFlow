@@ -31,7 +31,7 @@ export function NodeVersionHistory() {
             versions.map((version) => (
               <div
                 key={version.id}
-                className="rounded-[14px] border border-border-default bg-white p-2.5 shadow-sm"
+                className="rounded-[14px] border border-border-default bg-surface-0 p-2.5 shadow-sm"
               >
                 <div className="flex items-center justify-between gap-2.5">
                   <div>

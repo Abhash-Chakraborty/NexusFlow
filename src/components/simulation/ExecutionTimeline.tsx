@@ -35,7 +35,7 @@ export function ExecutionTimeline({ steps }: { steps: SimulationStep[] }) {
             className="grid grid-cols-[24px_1fr] gap-3"
           >
             <div className="flex flex-col items-center">
-              <div className="rounded-full bg-white p-1 shadow-sm">
+              <div className="rounded-full bg-surface-0 p-1 shadow-sm">
                 <Icon
                   className={`h-4 w-4 ${step.status === "running" || step.status === "pending" ? "animate-spin" : ""}`}
                 />
@@ -44,7 +44,7 @@ export function ExecutionTimeline({ steps }: { steps: SimulationStep[] }) {
                 <div className="mt-2 h-full w-px bg-border-default" />
               ) : null}
             </div>
-            <div className="rounded-[16px] border border-border-default bg-white p-4 shadow-sm">
+            <div className="rounded-[16px] border border-border-default bg-surface-0 p-4 shadow-sm">
               <div className="flex flex-wrap items-center gap-2">
                 <p className="text-sm font-semibold text-text-primary">{step.label}</p>
                 <Badge tone={statusToneMap[step.status]}>{step.status}</Badge>

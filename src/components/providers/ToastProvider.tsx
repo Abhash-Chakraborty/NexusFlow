@@ -22,15 +22,15 @@ const ToastContext = createContext<ToastContextValue | null>(null);
 const toneStyles: Record<ToastTone, { icon: typeof Info; className: string }> = {
   success: {
     icon: CheckCircle2,
-    className: "border-[var(--color-success)]/25 bg-white text-text-primary",
+    className: "border-[var(--color-success)]/25 bg-surface-0 text-text-primary",
   },
   error: {
     icon: CircleAlert,
-    className: "border-[var(--color-error)]/25 bg-white text-text-primary",
+    className: "border-[var(--color-error)]/25 bg-surface-0 text-text-primary",
   },
   info: {
     icon: Info,
-    className: "border-[var(--color-info)]/25 bg-white text-text-primary",
+    className: "border-[var(--color-info)]/25 bg-surface-0 text-text-primary",
   },
 };
 

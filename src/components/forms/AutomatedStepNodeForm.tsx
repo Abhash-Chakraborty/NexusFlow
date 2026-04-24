@@ -31,7 +31,7 @@ export function AutomatedStepNodeForm({ node }: AutomatedStepNodeFormProps) {
         </FormField>
         <FormField label="Automation Action">
           {isLoading ? (
-            <div className="flex h-11 items-center rounded-[12px] border border-border-default bg-white px-3">
+            <div className="flex h-11 items-center rounded-[12px] border border-border-default bg-surface-0 px-3">
               <Spinner />
               <span className="ml-2 text-sm text-text-secondary">Loading actions...</span>
             </div>

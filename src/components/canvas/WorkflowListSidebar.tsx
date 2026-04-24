@@ -55,7 +55,7 @@ export function WorkflowListSidebar() {
       {workflows.map((workflow) => (
         <div
           key={workflow.id}
-          className="rounded-[22px] border border-border-default bg-white p-3 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
+          className="rounded-[22px] border border-border-default bg-surface-0 p-3 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
         >
           <div className="flex items-start justify-between gap-2.5">
             <div className="min-w-0 flex-1 overflow-hidden">
