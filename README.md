@@ -268,6 +268,7 @@ pnpm db:studio
 ### Start the stack
 
 ```bash
+cp .env.production.example .env.production
 docker compose up --build
 ```
 
@@ -283,6 +284,22 @@ docker compose up --build
 ### Why the build is optimized
 
 The Dockerfile is split into dependency, production-dependency, build, and runtime stages. Lockfile-driven dependency fetching is cached separately from application code, which keeps rebuilds faster when only source files change.
+
+### Production compose usage
+
+The provided `docker-compose.yml` expects a real `.env.production` file on the server.
+
+Typical server flow:
+
+```bash
+cp .env.production.example .env.production
+nano .env.production
+docker compose up -d --build
+docker compose ps
+docker compose logs -f nexusflow
+```
+
+The compose stack keeps the app bound to `127.0.0.1:3000`, which is the recommended shape when you are running Nginx or Caddy on the same instance for TLS termination and public routing.
 
 ## Security Notes
 
