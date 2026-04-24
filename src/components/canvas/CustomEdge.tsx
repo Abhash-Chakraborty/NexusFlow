@@ -43,8 +43,8 @@ export function CustomEdge({
         >
           <button
             type="button"
-            className={`flex h-8 w-8 items-center justify-center rounded-full border border-border-default bg-white text-text-secondary shadow-[var(--shadow-menu)] transition hover:text-[var(--color-error)] ${
-              selected ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+            className={`flex h-8 w-8 items-center justify-center rounded-full border border-border-default bg-surface-0 text-text-secondary shadow-[var(--shadow-menu)] transition hover:border-[var(--color-error)] hover:text-[var(--color-error)] ${
+              selected ? "opacity-100" : "opacity-70 hover:opacity-100"
             }`}
             onClick={(event) => {
               event.stopPropagation();

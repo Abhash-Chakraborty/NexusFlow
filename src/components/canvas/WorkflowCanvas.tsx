@@ -208,7 +208,7 @@ function WorkflowCanvasInner() {
           connectionLineComponent={ConnectionLine}
           connectionRadius={30}
           defaultEdgeOptions={{ type: "default", animated: false }}
-          deleteKeyCode={null}
+          deleteKeyCode={["Backspace", "Delete"]}
           edgeTypes={edgeTypes}
           edges={edges}
           elevateEdgesOnSelect
@@ -239,7 +239,7 @@ function WorkflowCanvasInner() {
                 <span className="text-sm font-semibold uppercase tracking-[0.16em] text-text-primary">
                   Canvas
                 </span>
-                <span className="h-1 w-1 rounded-full bg-black/20" />
+                <span className="h-1 w-1 rounded-full bg-border-strong" />
                 <span className="text-xs font-medium uppercase tracking-[0.12em] text-text-secondary">
                   {nodes.length} nodes
                 </span>
@@ -267,7 +267,7 @@ function WorkflowCanvasInner() {
           <Panel position="bottom-left">
             <button
               aria-label="Canvas navigator"
-              className={`pointer-events-auto absolute bottom-0 left-0 overflow-hidden rounded-[16px] border border-border-default bg-[rgba(246,248,252,0.96)] shadow-[var(--shadow-panel)] backdrop-blur transition-all duration-300 ${
+              className={`pointer-events-auto absolute bottom-0 left-0 appearance-none overflow-hidden rounded-[16px] border border-border-default bg-transparent p-0 shadow-[var(--shadow-panel)] backdrop-blur transition-all duration-300 ${
                 isMinimapCondensed ? "h-[44px] w-[44px]" : "h-[188px] w-[248px]"
               }`}
               type="button"
@@ -276,12 +276,13 @@ function WorkflowCanvasInner() {
               onMouseEnter={() => setIsMinimapHovered(true)}
               onMouseLeave={() => setIsMinimapHovered(false)}
             >
-              <div className="h-full w-full overflow-hidden rounded-[15px]">
+              <div className="h-full w-full overflow-hidden rounded-[15px] bg-transparent">
                 <MiniMap
-                  maskColor="rgba(246,248,252,0.85)"
+                  maskColor="var(--color-minimap-mask)"
                   nodeColor={(node) =>
                     NODE_TYPE_CONFIGS[node.type as NodeType]?.colorHex ?? "var(--color-accent)"
                   }
+                  offsetScale={0}
                   pannable
                   position="bottom-left"
                   zoomable

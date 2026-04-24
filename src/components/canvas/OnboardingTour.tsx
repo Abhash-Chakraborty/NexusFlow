@@ -121,6 +121,7 @@ function getTooltipPosition(rect: SpotlightRect | null, placement: TourPlacement
 export function OnboardingTour() {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const [isStepReady, setIsStepReady] = useState(false);
   const [spotlightRect, setSpotlightRect] = useState<SpotlightRect | null>(null);
 
   const currentStep = TOUR_STEPS[currentStepIndex] ?? TOUR_STEPS[0];
@@ -138,11 +139,24 @@ export function OnboardingTour() {
       }
 
       const rect = target.getBoundingClientRect();
+      const width = Math.min(window.innerWidth - 16, rect.width + SPOTLIGHT_PADDING * 2);
+      const height = Math.min(window.innerHeight - 16, rect.height + SPOTLIGHT_PADDING * 2);
+      const left = clamp(
+        rect.left - SPOTLIGHT_PADDING,
+        8,
+        Math.max(8, window.innerWidth - width - 8),
+      );
+      const top = clamp(
+        rect.top - SPOTLIGHT_PADDING,
+        8,
+        Math.max(8, window.innerHeight - height - 8),
+      );
+
       setSpotlightRect({
-        left: Math.max(8, rect.left - SPOTLIGHT_PADDING),
-        top: Math.max(8, rect.top - SPOTLIGHT_PADDING),
-        width: Math.min(window.innerWidth - 16, rect.width + SPOTLIGHT_PADDING * 2),
-        height: Math.min(window.innerHeight - 16, rect.height + SPOTLIGHT_PADDING * 2),
+        left,
+        top,
+        width,
+        height,
       });
     },
     [currentStep],
@@ -168,6 +182,7 @@ export function OnboardingTour() {
       return;
     }
 
+    setIsStepReady(false);
     const target = document.querySelector<HTMLElement>(currentStep.selector);
     if (!target) {
       setSpotlightRect(null);
@@ -181,8 +196,13 @@ export function OnboardingTour() {
       inline: "nearest",
     });
 
-    const firstMeasure = window.setTimeout(measureStep, 260);
-    const secondMeasure = window.setTimeout(measureStep, 520);
+    const firstMeasure = window.setTimeout(() => {
+      measureStep();
+    }, 180);
+    const secondMeasure = window.setTimeout(() => {
+      measureStep();
+      setIsStepReady(true);
+    }, 360);
 
     const handleViewportChange = () => {
       measureStep();
@@ -207,6 +227,7 @@ export function OnboardingTour() {
       // Ignore storage failures and still close the tour.
     }
     setIsRunning(false);
+    setIsStepReady(false);
     setSpotlightRect(null);
     setCurrentStepIndex(0);
   };
@@ -275,7 +296,9 @@ export function OnboardingTour() {
         role="dialog"
         style={{
           left: tooltipPosition.left,
+          opacity: isStepReady ? 1 : 0,
           top: tooltipPosition.top,
+          transform: `translateY(${isStepReady ? "0px" : "8px"})`,
           width: tooltipPosition.width,
         }}
       >
@@ -304,9 +327,6 @@ export function OnboardingTour() {
           </p>
 
           <div className="flex items-center gap-2">
-            <Button size="sm" type="button" variant="ghost" onClick={endTour}>
-              Skip
-            </Button>
             {currentStepIndex > 0 ? (
               <Button
                 size="sm"
