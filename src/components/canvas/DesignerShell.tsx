@@ -11,6 +11,7 @@ import { useEffect, useRef } from "react";
 import { CanvasToolbar } from "./CanvasToolbar";
 import { ConfigPanel } from "./ConfigPanel";
 import { NodePaletteSidebar } from "./NodePaletteSidebar";
+import { OnboardingTour } from "./OnboardingTour";
 import { SimulationPanel } from "./SimulationPanel";
 import { StatusBar } from "./StatusBar";
 import { WorkflowCanvas } from "./WorkflowCanvas";
@@ -216,6 +217,7 @@ export function DesignerShell() {
         </div>
       </div>
 
+      <OnboardingTour />
       <SimulationPanel />
 
       <input

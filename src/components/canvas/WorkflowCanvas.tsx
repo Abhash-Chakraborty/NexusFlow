@@ -198,6 +198,7 @@ function WorkflowCanvasInner() {
     <div
       ref={canvasShellRef}
       className="surface-card relative h-full min-h-[460px] overflow-hidden rounded-[32px] p-2"
+      data-tour-id="workflow-canvas"
     >
       <div
         className="canvas-dot-grid h-full w-full overflow-hidden rounded-[26px] border border-white/70"
@@ -251,8 +252,8 @@ function WorkflowCanvasInner() {
 
           <Background
             color="var(--color-canvas-dot)"
-            gap={18}
-            size={1.4}
+            gap={20}
+            size={1.8}
             variant={BackgroundVariant.Dots}
           />
           <Controls position="bottom-right" showInteractive={false}>

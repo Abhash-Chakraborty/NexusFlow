@@ -27,7 +27,10 @@ export function StatusBar() {
     : null;
 
   return (
-    <div className="surface-card flex min-h-[42px] flex-wrap items-center justify-between gap-2.5 rounded-[24px] px-3 py-2">
+    <div
+      className="surface-card flex min-h-[42px] flex-wrap items-center justify-between gap-2.5 rounded-[24px] px-3 py-2"
+      data-tour-id="graph-status"
+    >
       <div className="flex flex-wrap items-center gap-1.5 text-xs text-text-secondary">
         <span className="mono-label">Graph status</span>
         <span className="inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-1 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">

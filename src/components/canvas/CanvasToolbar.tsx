@@ -52,7 +52,10 @@ export function CanvasToolbar({
   return (
     <div className="surface-card toolbar-shell rounded-[28px] px-3 py-2">
       <div className="flex items-center gap-3">
-        <div className="rounded-[22px] bg-black px-4 py-2 text-white shadow-[0_10px_24px_rgba(0,0,0,0.12)]">
+        <div
+          className="rounded-[22px] bg-black px-4 py-2 text-white shadow-[0_10px_24px_rgba(0,0,0,0.12)]"
+          data-tour-id="brand-mark"
+        >
           <div className="flex items-center gap-2">
             <p className="font-display text-[1.45rem] font-semibold tracking-[-0.05em]">
               NexusFlow
@@ -64,9 +67,9 @@ export function CanvasToolbar({
         </div>
       </div>
 
-      <div className="toolbar-fields min-w-0">
+      <div className="toolbar-fields min-w-0" data-tour-id="workflow-name">
         <Input
-          className="h-9 font-medium"
+          className="h-9 max-w-[320px] font-medium xl:max-w-[300px] 2xl:max-w-[340px]"
           placeholder="Flow name"
           value={workflowName}
           onChange={(event) => setWorkflowMeta(event.target.value, workflowDescription)}
@@ -75,7 +78,13 @@ export function CanvasToolbar({
 
       <div className="toolbar-actions">
         <div className="flex items-center gap-1 rounded-full border border-border-default bg-white p-0.5 shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
-          <Button size="sm" type="button" variant="ghost" onClick={onNewWorkflow}>
+          <Button
+            data-tour-id="new-workflow"
+            size="sm"
+            type="button"
+            variant="ghost"
+            onClick={onNewWorkflow}
+          >
             <RefreshCw className="h-4 w-4" />
             New
           </Button>

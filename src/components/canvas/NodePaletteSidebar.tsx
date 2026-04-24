@@ -29,7 +29,10 @@ export function NodePaletteSidebar() {
   const setSidebarTab = useWorkflowStore((state) => state.setSidebarTab);
 
   return (
-    <aside className="surface-card flex h-full w-full flex-col overflow-hidden rounded-[30px] p-2.5">
+    <aside
+      className="surface-card flex h-full w-full flex-col overflow-hidden rounded-[30px] p-2.5"
+      data-tour-id="left-rail"
+    >
       <div className="mt-2 grid grid-cols-2 gap-1.5 rounded-full bg-surface-2 p-1">
         <Button
           className="w-full"
@@ -56,7 +59,7 @@ export function NodePaletteSidebar() {
       <div className="mt-2 flex-1 overflow-y-auto pr-0.5">
         {sidebarTab === "nodes" ? (
           <div className="space-y-3">
-            <section className="space-y-1.5">
+            <section className="space-y-1.5" data-tour-id="node-palette">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="mono-label">Library</p>
@@ -112,7 +115,7 @@ export function NodePaletteSidebar() {
               })}
             </section>
 
-            <section className="space-y-1.5">
+            <section className="space-y-1.5" data-tour-id="starter-workflows">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="mono-label">Starters</p>

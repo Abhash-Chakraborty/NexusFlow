@@ -13,7 +13,10 @@ export function ConfigPanel() {
   const SelectedIcon = selectedConfig?.icon;
 
   return (
-    <aside className="surface-card flex h-full w-full min-w-0 flex-col overflow-hidden rounded-[30px]">
+    <aside
+      className="surface-card flex h-full w-full min-w-0 flex-col overflow-hidden rounded-[30px]"
+      data-tour-id="inspector-panel"
+    >
       <div className="border-b border-black/6 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(244,242,236,0.9))] px-4 py-2.5">
         <div className="flex items-center justify-between gap-2">
           <Badge tone={selectedNode ? "accent" : "muted"}>
