@@ -16,13 +16,13 @@ const buttonVariants = cva(
       },
       variant: {
         ghost:
-          "border-transparent bg-transparent text-text-secondary shadow-none hover:bg-black/4 hover:text-text-primary",
+          "border-transparent bg-transparent text-text-secondary shadow-none hover:bg-[var(--color-accent-subtle)] hover:text-text-primary",
         outline:
-          "border-border-default bg-white text-text-primary shadow-[0_1px_2px_rgba(0,0,0,0.06)] backdrop-blur hover:bg-surface-2",
+          "border-border-default bg-surface-0 text-text-primary shadow-[0_1px_2px_rgba(0,0,0,0.06)] backdrop-blur hover:bg-surface-2",
         primary:
-          "border-black bg-[var(--color-accent)] text-white shadow-[0_10px_26px_rgba(0,0,0,0.14)] hover:bg-[var(--color-accent-hover)]",
+          "border-[var(--color-accent)] bg-[var(--color-accent)] text-text-inverse shadow-[0_10px_26px_rgba(0,0,0,0.14)] hover:bg-[var(--color-accent-hover)]",
         subtle:
-          "border-transparent bg-black/6 text-text-primary shadow-none backdrop-blur hover:bg-black/10",
+          "border-transparent bg-[var(--color-accent-subtle)] text-text-primary shadow-none backdrop-blur hover:bg-[var(--color-accent-glow)]",
       },
     },
     defaultVariants: {

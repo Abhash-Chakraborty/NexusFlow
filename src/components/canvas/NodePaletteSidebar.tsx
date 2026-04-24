@@ -76,7 +76,7 @@ export function NodePaletteSidebar() {
                 return (
                   <button
                     key={config.type}
-                    className="group flex w-full cursor-grab items-center gap-2.5 rounded-[22px] border border-border-default bg-white p-2.5 text-left shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition hover:-translate-y-0.5 hover:border-black/20 hover:shadow-[var(--shadow-panel)]"
+                    className="group flex w-full cursor-grab items-center gap-2.5 rounded-[22px] border border-border-default bg-surface-0 p-2.5 text-left shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition hover:-translate-y-0.5 hover:border-border-strong hover:shadow-[var(--shadow-panel)]"
                     draggable
                     type="button"
                     onClick={() =>
@@ -131,7 +131,7 @@ export function NodePaletteSidebar() {
                 return (
                   <button
                     key={template.name}
-                    className="w-full rounded-[22px] border border-border-default bg-white p-2.5 text-left shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition hover:-translate-y-0.5 hover:border-black/20 hover:shadow-[var(--shadow-panel)]"
+                    className="w-full rounded-[22px] border border-border-default bg-surface-0 p-2.5 text-left shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition hover:-translate-y-0.5 hover:border-border-strong hover:shadow-[var(--shadow-panel)]"
                     type="button"
                     onClick={() =>
                       loadWorkflow({

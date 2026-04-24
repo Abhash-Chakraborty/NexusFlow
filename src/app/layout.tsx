@@ -1,8 +1,10 @@
 import { QueryProvider } from "@components/providers/QueryProvider";
+import { ThemeProvider } from "@components/providers/ThemeProvider";
 import { ToastProvider } from "@components/providers/ToastProvider";
 import { env } from "@lib/env";
 import type { Metadata } from "next";
 import { DM_Sans, JetBrains_Mono, Syne } from "next/font/google";
+import Script from "next/script";
 
 import "./globals.css";
 
@@ -28,6 +30,21 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const productionUrl = "https://nexusflow.abhashchakraborty.tech";
+const themeInitScript = `
+  (function() {
+    try {
+      var stored = localStorage.getItem('nexusflow:theme');
+      var theme = stored === 'dark' || stored === 'light'
+        ? stored
+        : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.style.colorScheme = theme;
+    } catch (error) {
+      document.documentElement.dataset.theme = 'light';
+      document.documentElement.style.colorScheme = 'light';
+    }
+  })();
+`;
 
 export const metadata: Metadata = {
   title: `${env.NEXT_PUBLIC_APP_NAME} | Visual Workflow Designer`,
@@ -55,13 +72,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable} min-h-screen bg-app text-text-primary antialiased`}
       >
-        <QueryProvider>
-          <ToastProvider>{children}</ToastProvider>
-        </QueryProvider>
+        <Script
+          id={`${env.NEXT_PUBLIC_APP_NAME.toLowerCase()}-theme-init`}
+          strategy="beforeInteractive"
+        >
+          {themeInitScript}
+        </Script>
+        <ThemeProvider>
+          <QueryProvider>
+            <ToastProvider>{children}</ToastProvider>
+          </QueryProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

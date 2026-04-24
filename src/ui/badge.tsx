@@ -8,9 +8,9 @@ const badgeVariants = cva(
   {
     variants: {
       tone: {
-        accent: "bg-[var(--color-accent)] text-white",
+        accent: "bg-[var(--color-accent)] text-text-inverse",
         error: "bg-[var(--color-error-bg)] text-[var(--color-error)]",
-        muted: "bg-black/6 text-text-secondary",
+        muted: "bg-[var(--color-accent-subtle)] text-text-secondary",
         success: "bg-[var(--color-success-bg)] text-[var(--color-success)]",
         warning: "bg-[var(--color-warning-bg)] text-[var(--color-warning)]",
       },

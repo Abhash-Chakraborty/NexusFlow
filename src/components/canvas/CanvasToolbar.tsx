@@ -77,7 +77,7 @@ export function CanvasToolbar({
       </div>
 
       <div className="toolbar-actions">
-        <div className="flex items-center gap-1 rounded-full border border-border-default bg-white p-0.5 shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
+        <div className="flex items-center gap-1 rounded-full border border-border-default bg-surface-0 p-0.5 shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
           <Button
             data-tour-id="new-workflow"
             size="sm"
@@ -106,7 +106,7 @@ export function CanvasToolbar({
           </Button>
         </div>
 
-        <div className="flex items-center gap-1 rounded-full border border-border-default bg-white p-0.5 shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
+        <div className="flex items-center gap-1 rounded-full border border-border-default bg-surface-0 p-0.5 shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
           <Button size="sm" type="button" variant="ghost" onClick={onLayoutVertical}>
             <LayoutPanelTop className="h-4 w-4" />
             Vertical
@@ -118,7 +118,7 @@ export function CanvasToolbar({
           </Button>
         </div>
 
-        <div className="flex items-center gap-1 rounded-full border border-border-default bg-white p-0.5 shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
+        <div className="flex items-center gap-1 rounded-full border border-border-default bg-surface-0 p-0.5 shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
           <Button size="sm" type="button" variant="ghost" onClick={onImportClick}>
             <Upload className="h-4 w-4" />
             Import

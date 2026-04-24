@@ -201,7 +201,7 @@ function WorkflowCanvasInner() {
       data-tour-id="workflow-canvas"
     >
       <div
-        className="canvas-dot-grid h-full w-full overflow-hidden rounded-[26px] border border-white/70"
+        className="canvas-dot-grid h-full w-full overflow-hidden rounded-[26px] border border-border-subtle"
         data-nexusflow-canvas="true"
       >
         <ReactFlow<WorkflowNode, WorkflowEdge>

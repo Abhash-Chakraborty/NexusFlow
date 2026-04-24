@@ -17,7 +17,7 @@ export function ConfigPanel() {
       className="surface-card flex h-full w-full min-w-0 flex-col overflow-hidden rounded-[30px]"
       data-tour-id="inspector-panel"
     >
-      <div className="border-b border-black/6 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(244,242,236,0.9))] px-4 py-2.5">
+      <div className="border-b border-border-subtle bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-surface-0)_96%,transparent),color-mix(in_srgb,var(--color-surface-2)_92%,transparent))] px-4 py-2.5">
         <div className="flex items-center justify-between gap-2">
           <Badge tone={selectedNode ? "accent" : "muted"}>
             {selectedNode ? "Editing" : "Inspector"}
@@ -51,7 +51,7 @@ export function ConfigPanel() {
             />
 
             <div className="grid gap-2">
-              <div className="rounded-[22px] border border-border-default bg-white p-3.5 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+              <div className="rounded-[22px] border border-border-default bg-surface-0 p-3.5 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
                 <div className="flex items-center gap-2">
                   <MousePointerClick className="h-4 w-4 text-[var(--color-accent)]" />
                   <p className="text-sm font-semibold text-text-primary">Live edit</p>
@@ -59,7 +59,7 @@ export function ConfigPanel() {
                 <p className="mt-1.5 text-sm text-text-secondary">Select, edit, and validate.</p>
               </div>
 
-              <div className="rounded-[22px] border border-border-default bg-white p-3.5 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+              <div className="rounded-[22px] border border-border-default bg-surface-0 p-3.5 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
                 <div className="flex items-center gap-2">
                   <History className="h-4 w-4 text-[var(--color-node-automated)]" />
                   <p className="text-sm font-semibold text-text-primary">Snapshots</p>

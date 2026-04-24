@@ -15,7 +15,7 @@ export function PopoverContent({
     <PopoverPrimitive.Portal>
       <PopoverPrimitive.Content
         className={cn(
-          "z-50 rounded-[16px] border border-border-default bg-white p-3 shadow-[var(--shadow-menu)]",
+          "z-50 rounded-[16px] border border-border-default bg-surface-0 p-3 shadow-[var(--shadow-menu)]",
           className,
         )}
         sideOffset={8}
