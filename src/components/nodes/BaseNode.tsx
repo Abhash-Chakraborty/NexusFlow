@@ -53,6 +53,11 @@ export const BaseNode = memo(function BaseNode({
         boxShadow: selected ? "var(--shadow-node-selected)" : "var(--shadow-node)",
       }}
     >
+      <div
+        className="pointer-events-none absolute left-[1px] right-[1px] top-[1px] h-[6px] rounded-t-[13px]"
+        style={{ backgroundColor: config.colorHex }}
+      />
+
       {showInputHandle ? (
         <>
           {/* biome-ignore lint/correctness/useUniqueElementIds: React Flow handle ids are scoped per node. */}
@@ -61,7 +66,7 @@ export const BaseNode = memo(function BaseNode({
             position={Position.Top}
             type="target"
             style={{
-              background: "#fff",
+              background: "var(--color-surface-0)",
               borderColor: config.colorHex,
               left: "50%",
             }}
@@ -69,17 +74,13 @@ export const BaseNode = memo(function BaseNode({
         </>
       ) : null}
 
-      <div className="px-[1px] pt-[1px]">
-        <div className="h-[4px] rounded-t-[11px]" style={{ backgroundColor: config.colorHex }} />
-      </div>
-
       <div className="flex items-start justify-between gap-3 px-3 pb-2 pt-3">
         <div className="min-w-0">
           <div className="flex items-center gap-2">
             <div
               className="rounded-full p-2"
               style={{
-                backgroundColor: "#fff",
+                backgroundColor: "var(--color-surface-0)",
                 color: config.colorHex,
               }}
             >
@@ -97,7 +98,7 @@ export const BaseNode = memo(function BaseNode({
           <PopoverTrigger asChild>
             <button
               type="button"
-              className="nodrag nopan rounded-full p-1.5 text-text-muted transition hover:bg-white/80 hover:text-text-primary"
+              className="nodrag nopan rounded-full p-1.5 text-text-muted transition hover:bg-surface-0 hover:text-text-primary"
               onClick={(event) => {
                 event.stopPropagation();
                 selectNode(id);
@@ -138,7 +139,10 @@ export const BaseNode = memo(function BaseNode({
       </div>
 
       <div
-        className={cn("border-t border-white/60 px-3 pt-2", hasValidationIssues ? "pb-11" : "pb-3")}
+        className={cn(
+          "border-t border-border-subtle px-3 pt-2",
+          hasValidationIssues ? "pb-11" : "pb-3",
+        )}
       >
         {children}
       </div>
@@ -166,21 +170,29 @@ export const BaseNode = memo(function BaseNode({
               id="approved"
               position={Position.Bottom}
               type="source"
-              style={{ background: "#fff", borderColor: config.colorHex, left: "35%" }}
+              style={{
+                background: "var(--color-surface-0)",
+                borderColor: config.colorHex,
+                left: "35%",
+              }}
             />
             {/* biome-ignore lint/correctness/useUniqueElementIds: React Flow handle ids are scoped per node. */}
             <Handle
               id="rejected"
               position={Position.Bottom}
               type="source"
-              style={{ background: "#fff", borderColor: config.colorHex, left: "65%" }}
+              style={{
+                background: "var(--color-surface-0)",
+                borderColor: config.colorHex,
+                left: "65%",
+              }}
             />
             <div className="pointer-events-none absolute -bottom-7 left-0 right-0 flex justify-between px-10">
               {(outputLabels ?? ["Approved", "Rejected"]).map((outputLabel) => (
                 <span
                   key={outputLabel}
                   className={cn(
-                    "rounded-full bg-white px-2 py-1 text-[10px] font-medium text-text-secondary shadow-sm",
+                    "rounded-full bg-surface-0 px-2 py-1 text-[10px] font-medium text-text-secondary shadow-sm",
                   )}
                 >
                   {outputLabel}
@@ -196,7 +208,7 @@ export const BaseNode = memo(function BaseNode({
               position={Position.Bottom}
               type="source"
               style={{
-                background: "#fff",
+                background: "var(--color-surface-0)",
                 borderColor: config.colorHex,
                 left: "50%",
               }}

@@ -13,21 +13,11 @@ interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-function applyTheme(theme: Theme, withTransition: boolean) {
+function applyTheme(theme: Theme) {
   const root = document.documentElement;
-
-  if (withTransition) {
-    root.classList.add("theme-transition");
-  }
 
   root.dataset.theme = theme;
   root.style.colorScheme = theme;
-
-  if (withTransition) {
-    window.setTimeout(() => {
-      root.classList.remove("theme-transition");
-    }, 240);
-  }
 }
 
 function getInitialTheme(): Theme {
@@ -45,7 +35,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const initialTheme = getInitialTheme();
     setThemeState(initialTheme);
-    applyTheme(initialTheme, false);
+    applyTheme(initialTheme);
   }, []);
 
   const value = useMemo<ThemeContextValue>(
@@ -54,7 +44,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       setTheme: (nextTheme) => {
         setThemeState(nextTheme);
         window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
-        applyTheme(nextTheme, true);
+        applyTheme(nextTheme);
       },
     }),
     [theme],

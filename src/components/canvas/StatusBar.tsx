@@ -31,7 +31,7 @@ export function StatusBar() {
   const validationSummary = validationResult.issues.length
     ? validationResult.issues.map((issue, index) => (
         <div key={`${issue.code}-${issue.nodeId ?? issue.edgeId ?? index}`} className="flex gap-2">
-          <span className="uppercase text-white/55">{issue.severity}</span>
+          <span className="uppercase text-text-muted">{issue.severity}</span>
           <span>{issue.message}</span>
         </div>
       ))
@@ -39,27 +39,10 @@ export function StatusBar() {
 
   return (
     <div
-      className="surface-card grid min-h-[42px] gap-2.5 rounded-[24px] px-3 py-2 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center"
+      className="surface-card grid min-h-[36px] gap-2 rounded-[22px] px-3 py-1.5 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center"
       data-tour-id="graph-status"
     >
       <div className="flex min-w-0 flex-wrap items-center gap-1.5 text-xs text-text-secondary">
-        <Select value={theme} onValueChange={(value) => setTheme(value as "dark" | "light")}>
-          <SelectTrigger className="h-8 min-w-[128px] gap-2 px-3 text-xs shadow-none">
-            <div className="flex items-center gap-2">
-              {theme === "dark" ? (
-                <MoonStar className="h-3.5 w-3.5" />
-              ) : (
-                <SunMedium className="h-3.5 w-3.5" />
-              )}
-              <SelectValue placeholder="Theme" />
-            </div>
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="light">Light</SelectItem>
-            <SelectItem value="dark">Dark</SelectItem>
-          </SelectContent>
-        </Select>
-
         <span className="mono-label">Graph status</span>
         <span className="inline-flex items-center gap-1 rounded-full bg-surface-0 px-2.5 py-1 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
           <CircleDot className="h-3.5 w-3.5" />
@@ -84,11 +67,11 @@ export function StatusBar() {
         )}
       </div>
 
-      <div className="text-center text-[12px] font-medium text-text-secondary">
-        Copyright © 2026 Abhash Chakraborty
+      <div className="self-center text-center text-[11px] font-medium text-text-secondary">
+        Copyright &#169; 2026 Abhash Chakraborty
       </div>
 
-      <div className="flex items-center justify-start gap-2 lg:justify-end">
+      <div className="flex items-center justify-start gap-2 self-center lg:justify-end">
         {validationResult.isValid && nodes.length > 0 ? (
           <Badge tone="success">Ready to run</Badge>
         ) : null}
@@ -105,6 +88,22 @@ export function StatusBar() {
             Unsaved
           </Badge>
         ) : null}
+        <Select value={theme} onValueChange={(value) => setTheme(value as "dark" | "light")}>
+          <SelectTrigger className="h-7 w-[104px] min-w-[104px] gap-2 px-2.5 text-xs shadow-none">
+            <div className="flex items-center gap-2">
+              {theme === "dark" ? (
+                <MoonStar className="h-3.5 w-3.5" />
+              ) : (
+                <SunMedium className="h-3.5 w-3.5" />
+              )}
+              <SelectValue placeholder="Theme" />
+            </div>
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="light">Light</SelectItem>
+            <SelectItem value="dark">Dark</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
     </div>
   );
